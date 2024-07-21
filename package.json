@@ -7,6 +7,13 @@
     "start": "ts-node src/server.ts",
     "dev": "nodemon --config nodemon.json --exec ts-node src/server.ts",
     "test": "jest",
+    "prepare": "husky",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
   },
   "keywords": [],
   "author": "",
