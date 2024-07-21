@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(loggerMiddleware);
 
+app.use('/todos', todoRoutes);
+
+setupSwagger(app);
+
 const PORT = 3000;
 
 app.listen(PORT, () => {
