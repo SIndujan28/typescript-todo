@@ -1,15 +1,17 @@
-// src/App.tsx
 import React from 'react';
+import { CssBaseline } from '@mui/material';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import { TodosPage } from './pages/TodosPage';
+import { TodoPage } from './pages/TodosPage';
+import './App.css'
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
+    <div className="app">      
     <Provider store={store}>
-      <TodosPage />
-    </Provider>
+      <CssBaseline />
+      <TodoPage />
+      </Provider>
+    </div>
   );
 };
-
-export default App;

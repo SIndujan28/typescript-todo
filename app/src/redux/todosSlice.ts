@@ -1,12 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import apiClient from '../api/apiClient';
-import { RootState } from './store'; // Import RootState from store
-
-export interface Todo {
-  id: string;
-  title: string;
-  completed: boolean;
-}
+import { RootState } from './store';
+import { Todo } from '../types/todo'
 
 export interface TodosState {
   todos: Todo[];
@@ -36,8 +31,6 @@ export const addTodo = createAsyncThunk<Todo, Omit<Todo, 'id'>>('todos/addTodo',
 export const updateTodo = createAsyncThunk<Todo, { id: string; updatedTodo: Partial<Todo> }>(
   'todos/updateTodo',
   async ({ id, updatedTodo }) => {
-    console.log(id)
-    console.log(updateTodo)
     const response = await apiClient.put(`/todos/${id}`, updatedTodo);
     return response.data;
   },
@@ -45,7 +38,6 @@ export const updateTodo = createAsyncThunk<Todo, { id: string; updatedTodo: Part
 
 // Delete todo
 export const deleteTodo = createAsyncThunk<string, string>('todos/deleteTodo', async (id) => {
-  console.log(id)
   await apiClient.delete(`/todos/${id}`);
   return id;
 });
