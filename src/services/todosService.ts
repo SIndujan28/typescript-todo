@@ -3,6 +3,13 @@ import { readTodosFromFile, writeTodosToFile } from '../storage/fileStorage';
 import { createTodoSchema, updateTodoSchema } from '../models/todoSchema';
 import { v4 as uuidv4 } from 'uuid';
 
+export const getTodosFromService = (page: number, limit: number): Todo[] => {
+  const todos = readTodosFromFile();
+  const start = (page - 1) * limit;
+  const end = start + limit;
+  return todos.slice(start, end);
+};
+
 export const addTodoToService = (newTodo: Partial<Todo>): Todo => {
   const validatedTodo = createTodoSchema.parse(newTodo);
   const todos = readTodosFromFile();
