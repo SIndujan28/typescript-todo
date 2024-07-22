@@ -8,7 +8,7 @@ const router = Router();
 
 /**
  * @swagger
- * /todos:
+ * /api/todos:
  *   get:
  *     summary: Get all todos with pagination
  *     parameters:
@@ -34,7 +34,7 @@ router.get('/', paginationMiddleware, getTodos);
 
 /**
  * @swagger
- * /todos:
+ * /api/todos:
  *   post:
  *     summary: Create a new todo
  *     requestBody:
@@ -51,7 +51,7 @@ router.post('/', validate({ body: createTodoSchema }), addTodo);
 
 /**
  * @swagger
- * /todos/{id}:
+ * /api/todos/{id}:
  *   put:
  *     summary: Update a todo
  *     parameters:
@@ -77,7 +77,7 @@ router.put('/:id', validate({ body: updateTodoSchema }), updateTodo);
 
 /**
  * @swagger
- * /todos/{id}:
+ * /api/todos/{id}:
  *   delete:
  *     summary: Delete a todo
  *     parameters:
