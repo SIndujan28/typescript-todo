@@ -20,14 +20,16 @@ This project contains a Todo application with a frontend built using React, Redu
 │   ├── tsconfig.json
 │   └── ...
 └── server
-    ├── controllers
-    ├── middleware
-    ├── models
-    ├── routes
-    ├── app.ts
-    ├── server.ts
-    ├── package.json
-    └── ...
+    ├── src
+        ├── controllers
+        ├── middleware
+        ├── models
+        ├── routes
+        ├── services
+        ├── storage
+        ├── server.ts
+        ├── package.json
+        └── ...
 ```
 
 ## Prerequisites
@@ -79,7 +81,7 @@ npm install
 ### Start the frontend development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
 The frontend application should now be running on http://localhost:3000.
@@ -88,13 +90,13 @@ The frontend application should now be running on http://localhost:3000.
 ## Additional Scripts
 ### Backend
 
-    npm run build or yarn build: Build the backend for production.
-    npm run start or yarn start: Start the backend in production mode.
+    npm run build: Build the backend for production.
+    npm run start: Start the backend in production mode.
 
 ### Frontend
 
-    npm run build or yarn build: Build the frontend for production.
-    npm run test or yarn test: Run frontend tests.
+    npm run build: Build the frontend for production.
+    npm run test: Run frontend tests.
 
 ## API Documentation
 
